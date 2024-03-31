@@ -1,44 +1,47 @@
-const mongoose = require('mongoose');
-const User = require('./userModel');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../db/db.js');
+const User = require('./userModel.js');
 
-
-const IncomeSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User, // Refers to documents in the 'User' collection
-        required: true
+const Income = sequelize.define('Income', {
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: User,
+            key: 'id'
+        }
     },
     title: {
-        type: String,
-        required: true,
-        trim: true,
-        maxLength: 50
+        type: DataTypes.STRING,
+        allowNull: false
     },
     amount: {
-        type: Number,
-        required: true,
-        maxLength: 20,
-        trim: true
+        type: DataTypes.DECIMAL(20, 2),
+        allowNull: false
     },
     type: {
-        type: String,
-        default: "income"
+        type: DataTypes.STRING,
+        defaultValue: 'income'
     },
     date: {
-        type: Date,
-        required: true,
-        trim: true
+        type: DataTypes.DATE,
+        allowNull: false
     },
-    category: {
-        type: String,
-        required: true,
-        trim: true
+    category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     description: {
-        type: String,
-        required: true,
-        trim: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
-}, { timestamps: true })
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
+    },
+    updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
+    }
+});
 
-module.exports = mongoose.model('Income', IncomeSchema)
+module.exports = Income;
