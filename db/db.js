@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
+const sql = require('mssql');
 
 const db = async () => {
     try {
-        mongoose.set('strictQuery', false) // to avoid deprecation warning
-        await mongoose.connect(process.env.MONGO_URL) // connect to db
-        console.log('Db Connected')
+        const pool = await sql.connect(process.env.CONNECTION_STRING);
+        console.log('Db Connected');
+        return pool;
     } catch (error) {
-        console.log('DB Connection Error');
+        console.error('DB Connection Error', error);
     }
 }
 
