@@ -1,14 +1,10 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db/db.js');
-const User = require('./userModel.js');
 
 const Income = sequelize.define('Income', {
     user_id: {
         type: DataTypes.INTEGER,
-        references: {
-            model: User,
-            key: 'id'
-        }
+        allowNull: false
     },
     title: {
         type: DataTypes.STRING,
@@ -26,8 +22,8 @@ const Income = sequelize.define('Income', {
         type: DataTypes.DATE,
         allowNull: false
     },
-    category_id: {
-        type: DataTypes.INTEGER,
+    category: {
+        type: DataTypes.STRING,
         allowNull: false
     },
     description: {
