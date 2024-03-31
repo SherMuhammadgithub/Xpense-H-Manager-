@@ -1,40 +1,50 @@
-const userSchema = require("../models/userModel");
+const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
-
-exports.signUp = async (req, res) => {
+exports.signUp = async(req, res) => {
     const { name, email, password } = req.body;
 
     try {
+        // validations
         if (!name || !email || !password) {
             return res.status(400).json({ message: "All fields are required" })
         }
         if (password.length < 6) {
-            return res.status(400).json({ message: "Password must be at least 6 characters long" })
+            return res.status(400).json({ message: "Password must be atleast 6 characters long" })
         }
-        await userSchema.create({ name, email, password });
-        res.status(200).json({ message: "User signed up successfully" })
+
+        const user = await User.create({
+            name,
+            email,
+            password
+        });
+
+        res.status(200).json({ message: "User created successfully" })
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
     }
-}
 
-exports.signIn = async (req, res) => {
+}
+exports.signIn = async(req, res) => {
     const { email, password } = req.body;
 
     try {
+        // validations
         if (!email || !password) {
             return res.status(400).json({ message: "All fields are required" })
         }
-        const user = await userSchema.findOne({ email });
+
+        const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: "User not found" })
+            return res.status(400).json({ message: "Invalid credentials" })
         }
+
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).json({ message: "Invalid credentials" })
         }
-        res.status(200).json({ message: "User signed in successfully" })
+
+        res.status(200).json({ message: "User logged in successfully" })
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
     }
@@ -44,20 +54,24 @@ exports.changePass = async (req, res) => {
     const { email, oldPassword, newPassword } = req.body;
 
     try {
-        // User will not explicitly provide his email it will be fetched from the token
+        // validations
         if (!email || !oldPassword || !newPassword) {
             return res.status(400).json({ message: "All fields are required" })
         }
-        const user = await userSchema.findOne({ email });
+
+        const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: "User not found" })
+            return res.status(400).json({ message: "Invalid credentials" })
         }
+
         const isMatch = await bcrypt.compare(oldPassword, user.password);
         if (!isMatch) {
             return res.status(400).json({ message: "Invalid credentials" })
         }
+
         user.password = newPassword;
         await user.save();
+
         res.status(200).json({ message: "Password changed successfully" })
     } catch (error) {
         res.status(500).json({ message: "Internal server error" })
