@@ -43,5 +43,5 @@ const Expense = sequelize.define('Expense', {
         defaultValue: DataTypes.NOW
     }
 });
-
+ Expense.sync();
 module.exports = Expense;

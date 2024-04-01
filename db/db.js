@@ -1,25 +1,9 @@
 const { Sequelize } = require('sequelize');
-const config = {
-  user: '',
-  password: '',
-  server: 'localhost\\SQLEXPRESS', 
-  database: 'Xpense', 
-  options: {
-    encrypt: true, 
-    trustServerCertificate: true 
-  }
-};
 
-const sequelize = new Sequelize('mssql://localhost\\SQLEXPRESS/Xpense',{
-    dialect: 'mssql',
-    dialectOptions: {
-        options: {
-            encrypt: true,
-            trustServerCertificate: true,
-        instanceName: 'SQLEXPRESS'
-        }
-    }
 
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: './db/db.sqlite'
 });
 
 const db = async() =>{

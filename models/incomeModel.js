@@ -39,5 +39,5 @@ const Income = sequelize.define('Income', {
         defaultValue: DataTypes.NOW
     }
 });
-
+Income.sync();
 module.exports = Income;
