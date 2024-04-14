@@ -30,14 +30,7 @@ const Income = sequelize.define('Income', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    created_at: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
-    },
-    updated_at: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
-    }
+
 });
 Income.sync();
 module.exports = Income;
