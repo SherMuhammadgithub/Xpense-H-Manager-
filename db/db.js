@@ -1,13 +1,17 @@
-const sql = require('mssql');
+const { Sequelize } = require('sequelize');
 
-const db = async () => {
-    try {
-        const pool = await sql.connect(process.env.CONNECTION_STRING);
-        console.log('Db Connected');
-        return pool;
+
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: './db/db.sqlite'
+});
+
+const db = async() =>{
+    try{
+        await sequelize.authenticate();
+        console.log('Connection has been established successfully.');
     } catch (error) {
-        console.error('DB Connection Error', error);
+        console.error('Unable to connect to the database:', error);
     }
 }
-
-module.exports = { db };
+module.exports = {db, sequelize};

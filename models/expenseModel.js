@@ -1,44 +1,39 @@
-const mongoose = require('mongoose');
-const User = require('./userModel');
+const { DataTypes } = require('sequelize');
+const {sequelize} = require('../db/db.js');
+const User = require('./userModel.js');
 
-
-const ExpenseSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User, // Refers to documents in the 'User' collection
-        required: true
+const Expense = sequelize.define('Expense', {
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: User,
+            key: 'id'
+        }
     },
     title: {
-        type: String,
-        required: true,
-        trim: true,
-        maxLength: 50
+        type: DataTypes.STRING,
+        allowNull: false
     },
     amount: {
-        type: Number,
-        required: true,
-        maxLength: 20,
-        trim: true
+        type: DataTypes.DECIMAL(20, 2),
+        allowNull: false
     },
     type: {
-        type: String,
-        default: "Expense"
+        type: DataTypes.STRING,
+        defaultValue: 'Expense'
     },
     date: {
-        type: Date,
-        required: true,
-        trim: true
+        type: DataTypes.DATE,
+        allowNull: false
     },
     category: {
-        type: String,
-        required: true,
-        trim: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
     description: {
-        type: String,
-        required: true,
-        trim: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
-}, { timestamps: true })
-
-module.exports = mongoose.model('Expense', ExpenseSchema)
+});
+ Expense.sync();
+module.exports = Expense;

@@ -1,12 +1,5 @@
 use Xpense;
 
-CREATE TABLE Category
-(
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description VARCHAR(255) DEFAULT NULL
-);
-
 CREATE TABLE Users
 (
     id INT IDENTITY(1,1) PRIMARY KEY,
@@ -25,7 +18,7 @@ CREATE TABLE Income
     amount DECIMAL(20, 2) NOT NULL,
     type VARCHAR(255) DEFAULT 'income',
     date DATE NOT NULL,
-    category_id INT FOREIGN KEY REFERENCES Category(id),
+    category VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -39,7 +32,7 @@ CREATE TABLE Expense
     amount DECIMAL(20, 2) NOT NULL,
     type VARCHAR(255) DEFAULT 'Expense',
     date DATE NOT NULL,
-    category_id INT FOREIGN KEY REFERENCES Category(id),
+    category VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
