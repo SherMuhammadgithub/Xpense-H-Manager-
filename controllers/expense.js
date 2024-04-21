@@ -60,6 +60,35 @@ exports.getExpense = async (req, res) => {
     }
 }
 
+exports.updateExpense = async(req,res) => {
+    const { title, amount, category, description, date, user_id, id } = req.body;
+    try {
+        if (!title || !amount || !category || !description || !date || !user_id) {
+            return res.status(400).json({ message: "All fields are required" })
+        }
+        if (amount < 0 || typeof amount !== 'number') {
+            return res.status(400).json({ message: "Amount cannot be negative" })
+        }
+        const categoryData = await Category.findOne({ where: { name: category }, attributes: ['id']});
+        if (!categoryData) {
+            return res.status(400).json({ message: "Category does not exist" })
+        }
+        const category_id = categoryData.get('id');
+        const expense = await Expense.update({
+            user_id,
+            category_id,
+            title,
+            amount,
+            description,
+            date
+        }, { where: { id } });
+
+        res.status(200).json({ message: "Expense updated successfully" })
+    } catch (error) {
+        res.status(500).json({ message: "Server Error" })
+    }
+}
+
 exports.deleteExpense = async (req, res) => {
     try {
         const expenseId = req.params.id;
