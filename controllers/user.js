@@ -75,3 +75,41 @@ exports.changePass = async (req, res) => {
         res.status(500).json({ message: "Internal server error" })
     }
 }
+
+exports.updateUser = async (req, res) => {
+    const { name, email, id } = req.body;
+
+    try {
+        if (!name || !email) {
+            return res.status(400).json({ message: "All fields are required" })
+        }
+
+        const user = await User.findOne({ id });
+        if (!user) {
+            return res.status(400).json({ message: "User not found" })
+        }
+
+        user.name = name;
+        user.email = email;
+        await user.save();
+
+        res.status(200).json({ message: "User updated successfully" })
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
+
+exports.deleteUser = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const user = await User.destroy({ id });
+        if (user) {
+            res.status(200).json({ message: "User deleted successfully" });
+        } else {
+            res.status(400).json({ message: "User not found" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
