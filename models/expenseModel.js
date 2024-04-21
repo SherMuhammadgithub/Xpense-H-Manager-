@@ -3,6 +3,11 @@ const {sequelize} = require('../db/db.js');
 const User = require('./userModel.js');
 
 const Expense = sequelize.define('Expense', {
+    id:{
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -35,5 +40,5 @@ const Expense = sequelize.define('Expense', {
         allowNull: false
     },
 });
- Expense.sync();
+Expense.sync();
 module.exports = Expense;
