@@ -1,16 +1,10 @@
-const { where } = require("sequelize");
 
 exports.addGoal = async (req, res) => {
-    const {category, amount ,description, title} = req.body;
+    const {category_id, amount ,description, title} = req.body;
     try {
-        if (!category || !amount || !description,title) {
+        if (!category_id || !amount || !description,title) {
             return res.status(400).json({ message: "All fields are required" })
         }
-        const categoryData = await Category.findOne({ where: { name: category }, attributes: ['id']});
-        if (!categoryData) {
-            return res.status(400).json({ message: "Category does not exist" })
-        }
-        const category_id = categoryData.get('id');
         const goal = await Goal.create({
             category_id,
             title,
@@ -25,14 +19,11 @@ exports.addGoal = async (req, res) => {
 exports.getGoal = async (req, res) => {
     try {
         const userId = req.params.userId;
-        const { category } = req.query;
+        const { category_id } = req.query;
         
         let query = { user_id: userId };
-        if (category){
-            let CategoryInstance = await Category.findOne({ where: { name: category }, attributes: ['id']});
-        }
-        if (CategoryInstance) {
-            query.category_id = CategoryInstance.get('id');
+        if (category_id) {
+            query.category_id = category_id;
         }
         let sortOptions = [['createdAt', 'DESC']];
         const goal = await Goal.findAll({ where: query, order: sortOptions });
@@ -44,19 +35,14 @@ exports.getGoal = async (req, res) => {
 }
 
 exports.updateGoal = async(req,res) => {
-    const {category, amount ,description, title, id} = req.body;
+    const {category_id, amount ,description, title, id} = req.body;
     try {
-        if (!category || !amount || !description,title) {
+        if (!category_id || !amount || !description,title) {
             return res.status(400).json({ message: "All fields are required" })
         }
         if (amount < 0 || typeof amount !== 'number') {
             return res.status(400).json({ message: "Amount cannot be negative" })
         }
-        const categoryData = await Category.findOne({ where: { name: category }, attributes: ['id']});
-        if (!categoryData) {
-            return res.status(400).json({ message: "Category does not exist" })
-        }
-        const category_id = categoryData.get('id');
         const goal = await Goal.update({
             category_id,
             title,
