@@ -32,10 +32,6 @@ const Expense = sequelize.define('Expense', {
         type: DataTypes.DECIMAL(20, 2),
         allowNull: false
     },
-    type: {
-        type: DataTypes.STRING,
-        defaultValue: 'Expense'
-    },
     date: {
         type: DataTypes.DATE,
         allowNull: false

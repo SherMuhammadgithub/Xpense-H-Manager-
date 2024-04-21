@@ -25,23 +25,19 @@ const Income = sequelize.define('Income', {
             key: 'id'
         }
     },
-    Title: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    TotalAmount: {
+    amount: {
         type: DataTypes.DECIMAL(20, 2),
         allowNull: false
     },
-    Type: {
-        type: DataTypes.STRING,
-        defaultValue: 'income'
-    },
-    ReceivedDate: {
+    date: {
         type: DataTypes.DATE,
         allowNull: false
     },
-    Description: {
+    description: {
         type: DataTypes.STRING,
         allowNull: false
     },
