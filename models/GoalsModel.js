@@ -28,5 +28,5 @@ const Goals = sequelize.define('Goals', {
         allowNull: false
     },
 });
-Goals.sync();
+// Goals.sync();
 module.exports = Goals;

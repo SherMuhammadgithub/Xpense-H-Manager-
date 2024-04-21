@@ -40,5 +40,5 @@ const Income = sequelize.define('Income', {
         allowNull: false
     },
 });
-Income.sync();
+// Income.sync();
 module.exports = Income;

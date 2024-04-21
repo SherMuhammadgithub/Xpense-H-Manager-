@@ -1,7 +1,5 @@
 const { DataTypes } = require('sequelize');
 const {sequelize} = require('../db/db.js');
-const {User} = require('./userModel.js');
-const {Category} = require('./CategoryModel.js');
 
 const Expense = sequelize.define('Expense', {
     id:{
@@ -40,5 +38,5 @@ const Expense = sequelize.define('Expense', {
         allowNull: false
     },
 });
-Expense.sync();
+// Expense.sync();
 module.exports = Expense;

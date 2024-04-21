@@ -23,5 +23,5 @@ const Notification = sequelize.define('Notification', {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     }});
-Notification.sync();
+// Notification.sync();
 module.exports = Notification;
