@@ -1,12 +1,12 @@
-const {Goal} = require('../models/GoalsModel');
+const Goals = require('../models/GoalsModel');
 
 exports.addGoal = async (req, res) => {
     const {category_id, amount ,description, title} = req.body;
     try {
-        if (!category_id || !amount || !description,title) {
+        if (!category_id || !amount || !description,!title) {
             return res.status(400).json({ message: "All fields are required" })
         }
-        const goal = await Goal.create({
+        const goal = await Goals.create({
             category_id,
             title,
             amount,
@@ -14,7 +14,7 @@ exports.addGoal = async (req, res) => {
         });
         res.status(200).json({ message: "Goal added successfully" })
     } catch (error) {
-        res.status(500).json({ message: "Server Error" })
+        res.status(500).json({ message: "Server Error"})
     }}
 
 exports.getGoal = async (req, res) => {
@@ -27,7 +27,7 @@ exports.getGoal = async (req, res) => {
             query.category_id = category_id;
         }
         let sortOptions = [['createdAt', 'DESC']];
-        const goal = await Goal.findAll({ where: query, order: sortOptions });
+        const goal = await Goals.findAll({ where: query, order: sortOptions });
         res.status(200).json(goal);
     }
     catch (error) {
@@ -44,7 +44,7 @@ exports.updateGoal = async(req,res) => {
         if (amount < 0 || typeof amount !== 'number') {
             return res.status(400).json({ message: "Amount cannot be negative" })
         }
-        const goal = await Goal.update({
+        const goal = await Goals.update({
             category_id,
             title,
             amount,
@@ -59,7 +59,7 @@ exports.updateGoal = async(req,res) => {
 exports.deleteGoal = async (req, res) => {
     const { id } = req.params;
     try {
-        const goal = await Goal.destroy({ where: { id } });
+        const goal = await Goals.destroy({ where: { id } });
         if (goal) {
             res.status(200).json({ message: "Goal deleted successfully" });
         } else {
