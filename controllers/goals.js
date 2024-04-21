@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 
 exports.addGoal = async (req, res) => {
     const {category, amount ,description, title} = req.body;
@@ -39,6 +40,32 @@ exports.getGoal = async (req, res) => {
     }
     catch (error) {
         res.status(500).json({ message: "Internal server error" })
+    }
+}
+
+exports.updateGoal = async(req,res) => {
+    const {category, amount ,description, title, id} = req.body;
+    try {
+        if (!category || !amount || !description,title) {
+            return res.status(400).json({ message: "All fields are required" })
+        }
+        if (amount < 0 || typeof amount !== 'number') {
+            return res.status(400).json({ message: "Amount cannot be negative" })
+        }
+        const categoryData = await Category.findOne({ where: { name: category }, attributes: ['id']});
+        if (!categoryData) {
+            return res.status(400).json({ message: "Category does not exist" })
+        }
+        const category_id = categoryData.get('id');
+        const goal = await Goal.update({
+            category_id,
+            title,
+            amount,
+            description
+        }, { where: { id } });
+        res.status(200).json({ message: "Goal updated successfully" })
+    } catch (error) {
+        res.status(500).json({ message: "Server Error" })
     }
 }
 
