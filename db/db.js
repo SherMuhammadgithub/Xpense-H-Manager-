@@ -14,4 +14,5 @@ const db = async() =>{
         console.error('Unable to connect to the database:', error);
     }
 }
+sequelize.sync();
 module.exports = {db, sequelize};
