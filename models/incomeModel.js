@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const {sequelize} = require('../db/db.js');
+const {User} = require('./userModel.js');
+const {Category} = require('./CategoryModel.js');
 
 const Income = sequelize.define('Income', {
     id:{
@@ -11,7 +13,7 @@ const Income = sequelize.define('Income', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'User',
+            model: User,
             key: 'id'
         }
     },
@@ -19,31 +21,27 @@ const Income = sequelize.define('Income', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'Category',
+            model: Category,
             key: 'id'
         }
     },
-    title: {
+    Title: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    amount: {
+    TotalAmount: {
         type: DataTypes.DECIMAL(20, 2),
         allowNull: false
     },
-    type: {
+    Type: {
         type: DataTypes.STRING,
         defaultValue: 'income'
     },
-    date: {
+    ReceivedDate: {
         type: DataTypes.DATE,
         allowNull: false
     },
-    category: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    description: {
+    Description: {
         type: DataTypes.STRING,
         allowNull: false
     },
