@@ -1,4 +1,5 @@
 const Expense = require("../models/expenseModel");
+const Category = require("../models/CategoryModel");
 
 exports.addExpense = async (req, res) => {
     const { title, amount, category, description, date, user_id } = req.body;
@@ -10,12 +11,17 @@ exports.addExpense = async (req, res) => {
         if (amount < 0 || typeof amount !== 'number') {
             return res.status(400).json({ message: "Amount cannot be negative" })
         }
-
+        // Get category id from category model
+        const categoryData = await Category.findOne({ where: { name: category }, attributes: ['id']});
+        if (!categoryData) {
+            return res.status(400).json({ message: "Category does not exist" })
+        }
+        const category_id = categoryData.get('id');
         const expense = await Expense.create({
             user_id,
+            category_id,
             title,
             amount,
-            category,
             description,
             date
         });

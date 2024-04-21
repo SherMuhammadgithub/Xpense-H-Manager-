@@ -1,4 +1,5 @@
 const Income = require("../models/incomeModel");
+const Category = require("../models/CategoryModel");
 
 exports.addIncome = async (req, res) => {
     const { title, amount, category, description, date, user_id } = req.body;
@@ -10,12 +11,17 @@ exports.addIncome = async (req, res) => {
         if (amount < 0 || typeof amount !== 'number') {
             return res.status(400).json({ message: "Amount cannot be negative" })
         }
+        const categoryData = await Category.findOne({ where: { name: category }, attributes: ['id']});
+        if (!categoryData) {
+            return res.status(400).json({ message: "Category does not exist" })
+        }
+        const category_id = categoryData.get('id');
 
         const income = await Income.create({
             user_id,
             title,
             amount,
-            category,
+            category_id,
             description,
             date
         });
@@ -33,7 +39,9 @@ exports.getIncome = async (req, res) => {
         
         let query = { user_id: userId };
         if (category) {
-            query.category = category;
+        let categoryInstance = await Category.findOne({ where: { name: category } ,attributes: ['id']});}
+        if (categoryInstance) {
+            query.category_id = categoryInstance.get('id'); 
         }
         
         let sortOptions = [['createdAt', 'DESC']];
