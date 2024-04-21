@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "expense",
+            "database": "${workspaceFolder:Xpense-H-Manager-}/db/db.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
