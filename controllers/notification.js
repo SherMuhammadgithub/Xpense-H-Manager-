@@ -1,4 +1,4 @@
-const {Notification} = require('../models/NotificationModel')
+const Notification = require('../models/NotificationModel')
 
 exports.addNotification = async(req,res) => {
     const { user_id, message } = req.body;
@@ -13,6 +13,7 @@ exports.addNotification = async(req,res) => {
         res.status(200).json({ message: "Notification added successfully" })
     } catch (error) {
         res.status(500).json({ message: "Server Error" })
+        console.log(error)
     }
 }
 
