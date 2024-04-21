@@ -51,8 +51,7 @@ exports.getIncome = async (req, res) => {
     }
 }
 exports.updateIncome = async(req,res) => {
-    const { title, amount, category_id, description, date, user_id } = req.body;
-    const incomeId = req.params.id;
+    const { title, amount, category_id, description, date, user_id, id } = req.body;
     try {
         if (!title || !amount || !category_id || !description || !date || !user_id) {
             return res.status(400).json({ message: "All fields are required" })
@@ -67,7 +66,7 @@ exports.updateIncome = async(req,res) => {
             category_id,
             description,
             date
-        }, { where: { id: incomeId } });
+        }, { where: { id: id } });
 
         res.status(200).json({ message: "Income updated successfully" })
     } catch (error) {
