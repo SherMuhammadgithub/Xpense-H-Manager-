@@ -9,7 +9,7 @@ exports.signUp = async(req, res) => {
             return res.status(400).json({ message: "All fields are required" })
         }
         if (password.length < 6) {
-            return res.status(400).json({ message: "Password must be atleast 6 characters long" })
+            return res.status(400).json({ message: "Password must be at least 6 characters long" })
         }
 
         const user = await User.create({
@@ -110,6 +110,6 @@ exports.deleteUser = async (req, res) => {
             res.status(400).json({ message: "User not found" });
         }
     } catch (error) {
-        res.status(500).json({ message: "Internal server error", error: error.message})
+        res.status(500).json({ message: "Internal server error"})
     }
 }
