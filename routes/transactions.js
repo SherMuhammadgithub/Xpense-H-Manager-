@@ -1,6 +1,6 @@
 const { addExpense, getExpense, deleteExpense, updateExpense } = require('../controllers/expense');
 const { addIncome, getIncome, deleteIncome, updateIncome} = require('../controllers/income');
-const { signUp, signIn , changePass, updateUser} = require('../controllers/user');
+const { signUp, signIn , changePass, updateUser, deleteUser} = require('../controllers/user');
 const {getCategory, addCategory, deleteCategory} = require('../controllers/category');
 const {getGoal,addGoal,deleteGoal,updateGoal} = require('../controllers/goals');
 const {getNotification,addNotification,deleteNotification,seenNotification} = require('../controllers/notification');
@@ -23,6 +23,7 @@ router.post('/add-income', addIncome)
     .post('/signIn', signIn)
     .post('/changePass', changePass)
     .post('/updateUser', updateUser)
+    .delete('/delete-user/:id', deleteUser)
     // Category
     .get('/get-category', getCategory)
     .post('/add-category', addCategory)
