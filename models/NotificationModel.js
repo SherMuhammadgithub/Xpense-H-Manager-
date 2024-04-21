@@ -1,6 +1,5 @@
 const {DataTypes} = require('sequelize');
 const {sequelize} = require('../db/db.js');
-const {User} = require('./userModel.js');
 
 const Notification = sequelize.define('Notification', {
     id:{
@@ -12,7 +11,7 @@ const Notification = sequelize.define('Notification', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: User,
+            model: "User",
             key: 'id'
         }
     },

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const {sequelize} = require('../db/db.js');
-const User = require('./userModel.js');
+const {User} = require('./userModel.js');
 const {Category} = require('./CategoryModel.js');
 
 const Expense = sequelize.define('Expense', {
@@ -12,15 +12,14 @@ const Expense = sequelize.define('Expense', {
     user_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: User,
+            model: "User",
             key: 'id'
         }
     },
     category_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
-            model: Category,
+            model: "Category",
             key: 'id'
         }
     },

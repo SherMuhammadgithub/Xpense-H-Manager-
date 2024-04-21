@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const {sequelize} = require('../db/db.js');
-const {Category} = require('./CategoryModel.js');
 
 const Goals = sequelize.define('Goals', {
     id:{
@@ -12,7 +11,7 @@ const Goals = sequelize.define('Goals', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: Category,
+            model: "Category",
             key: 'id'
         }
     },
@@ -27,6 +26,7 @@ const Goals = sequelize.define('Goals', {
     description:{
         type: DataTypes.STRING,
         allowNull: false
-    }});
+    },
+});
 Goals.sync();
 module.exports = Goals;
