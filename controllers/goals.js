@@ -19,13 +19,9 @@ exports.addGoal = async (req, res) => {
 
 exports.getGoal = async (req, res) => {
     try {
-        const userId = req.params.userId;
-        const { category_id } = req.query;
+        const category_id = req.params.id;
         
-        let query = { user_id: userId };
-        if (category_id) {
-            query.category_id = category_id;
-        }
+        let query = { category_id: category_id };
         let sortOptions = [['createdAt', 'DESC']];
         const goal = await Goals.findAll({ where: query, order: sortOptions });
         res.status(200).json(goal);
