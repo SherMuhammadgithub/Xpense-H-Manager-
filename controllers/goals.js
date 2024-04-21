@@ -34,7 +34,7 @@ exports.getGoal = async (req, res) => {
 exports.updateGoal = async(req,res) => {
     const {category_id, amount ,description, title, id} = req.body;
     try {
-        if (!category_id || !amount || !description,title) {
+        if (!category_id || !amount || !description,!title) {
             return res.status(400).json({ message: "All fields are required" })
         }
         if (amount < 0 || typeof amount !== 'number') {
