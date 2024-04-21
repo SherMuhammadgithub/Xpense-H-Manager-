@@ -11,7 +11,7 @@ const Income = sequelize.define('Income', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: "User",
+            model: "Users",
             key: 'id'
         }
     },
@@ -19,7 +19,7 @@ const Income = sequelize.define('Income', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: "Category",
+            model: "Categories",
             key: 'id'
         }
     },

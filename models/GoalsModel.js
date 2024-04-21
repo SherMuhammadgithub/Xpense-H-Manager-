@@ -11,7 +11,7 @@ const Goals = sequelize.define('Goals', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: "Category",
+            model: "Categories",
             key: 'id'
         }
     },

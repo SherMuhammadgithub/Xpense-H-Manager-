@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const {sequelize} = require('../db/db.js');
 const bcrypt = require('bcrypt');
 
-const User = sequelize.define('User', {
+const User = sequelize.define('Users', {
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
