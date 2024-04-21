@@ -1,5 +1,4 @@
 const Income = require("../models/incomeModel");
-const Category = require("../models/CategoryModel");
 
 exports.addIncome = async (req, res) => {
     const { title, amount, category_id, description, date, user_id } = req.body;

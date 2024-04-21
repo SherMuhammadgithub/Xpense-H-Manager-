@@ -1,3 +1,4 @@
+const Category = require('../models/CategoryModel');
 
 exports.addCategory = async (req, res) => {
     const {type, name} = req.body;
@@ -11,7 +12,7 @@ exports.addCategory = async (req, res) => {
         });
         res.status(200).json({ message: "Category added successfully" })
     } catch (error) {
-        res.status(500).json({ message: "Server Error" })
+        res.status(500).json({ message: "Server Error", error: error.message })
     }
 }
 

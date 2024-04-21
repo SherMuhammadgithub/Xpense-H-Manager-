@@ -1,3 +1,4 @@
+const {Goal} = require('../models/GoalsModel');
 
 exports.addGoal = async (req, res) => {
     const {category_id, amount ,description, title} = req.body;
