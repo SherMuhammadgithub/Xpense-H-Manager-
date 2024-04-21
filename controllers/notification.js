@@ -44,8 +44,10 @@ exports.deleteNotification = async(req,res) => {
 exports.seenNotification = async(req,res) => {
     const { id } = req.params;
     try {
-        const notification = await Notification.update({ seen: true }, { where: { id } });
+        const notification = await Notification.findOne({ where: { id } });
         if (notification) {
+            notification.Seen = true;
+            await notification.save();
             res.status(200).json({ message: "Notification seen successfully" });
         } else {
             res.status(400).json({ message: "Notification not found" });
