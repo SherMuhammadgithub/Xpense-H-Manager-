@@ -38,8 +38,11 @@ exports.getExpense = async (req, res) => {
         const { category, sortBy } = req.query;
         
         let query = { user_id: userId };
-        if (category) {
-            query.category = category;
+        if (category){
+            let CategoryInstance = await Category.findOne({ where: { name: category }, attributes: ['id']});
+        }
+        if (CategoryInstance) {
+            query.category_id = CategoryInstance.get('id');
         }
         
         let sortOptions = [['createdAt', 'DESC']];
