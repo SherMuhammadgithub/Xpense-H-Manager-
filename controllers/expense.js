@@ -2,21 +2,15 @@ const Expense = require("../models/expenseModel");
 const Category = require("../models/CategoryModel");
 
 exports.addExpense = async (req, res) => {
-    const { title, amount, category, description, date, user_id } = req.body;
+    const { title, amount, category_id, description, date, user_id } = req.body;
 
     try {
-        if (!title || !amount || !category || !description || !date || !user_id) {
+        if (!title || !amount || !category_id || !description || !date || !user_id) {
             return res.status(400).json({ message: "All fields are required" })
         }
         if (amount < 0 || typeof amount !== 'number') {
             return res.status(400).json({ message: "Amount cannot be negative" })
         }
-        // Get category id from category model
-        const categoryData = await Category.findOne({ where: { name: category }, attributes: ['id']});
-        if (!categoryData) {
-            return res.status(400).json({ message: "Category does not exist" })
-        }
-        const category_id = categoryData.get('id');
         const expense = await Expense.create({
             user_id,
             category_id,
@@ -35,16 +29,12 @@ exports.addExpense = async (req, res) => {
 exports.getExpense = async (req, res) => {
     try {
         const userId = req.params.userId;
-        const { category, sortBy } = req.query;
+        const { category_id, sortBy } = req.query;
         
         let query = { user_id: userId };
-        if (category){
-            let CategoryInstance = await Category.findOne({ where: { name: category }, attributes: ['id']});
+        if (category_id) {
+            query.category_id = category_id
         }
-        if (CategoryInstance) {
-            query.category_id = CategoryInstance.get('id');
-        }
-        
         let sortOptions = [['createdAt', 'DESC']];
         
         if (sortBy === 'amount_asc') {
@@ -61,19 +51,14 @@ exports.getExpense = async (req, res) => {
 }
 
 exports.updateExpense = async(req,res) => {
-    const { title, amount, category, description, date, user_id, id } = req.body;
+    const { title, amount, category_id, description, date, user_id, id } = req.body;
     try {
-        if (!title || !amount || !category || !description || !date || !user_id) {
+        if (!title || !amount || !category_id || !description || !date || !user_id) {
             return res.status(400).json({ message: "All fields are required" })
         }
         if (amount < 0 || typeof amount !== 'number') {
             return res.status(400).json({ message: "Amount cannot be negative" })
         }
-        const categoryData = await Category.findOne({ where: { name: category }, attributes: ['id']});
-        if (!categoryData) {
-            return res.status(400).json({ message: "Category does not exist" })
-        }
-        const category_id = categoryData.get('id');
         const expense = await Expense.update({
             user_id,
             category_id,
