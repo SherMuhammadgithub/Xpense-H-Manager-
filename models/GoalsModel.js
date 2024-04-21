@@ -16,7 +16,11 @@ const Goals = sequelize.define('Goals', {
             key: 'id'
         }
     },
-    Amount:{
+    title:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    amount:{
         type: DataTypes.DECIMAL(20, 2),
         allowNull: false
     },
