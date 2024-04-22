@@ -74,7 +74,7 @@ exports.updateIncome = async (req, res) => {
     if (amount < 0 || typeof amount !== "number") {
       return res.status(400).json({ message: "Amount cannot be negative" });
     }
-    await Income.update(
+    const [affectedRows] = await Income.update(
       {
         user_id,
         title,
@@ -86,7 +86,11 @@ exports.updateIncome = async (req, res) => {
       { where: { id: id } }
     );
 
-    res.status(200).json({ message: "Income updated successfully" });
+    if (affectedRows === 0) {
+      return res.status(400).json({ message: "Income not found" });
+    } else {
+      res.status(200).json({ message: "Income updated successfully" });
+    }
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
