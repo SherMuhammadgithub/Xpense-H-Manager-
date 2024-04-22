@@ -22,9 +22,10 @@ router.post('/add-income', addIncome)
     .post('/signUp', signUp)
     .post('/signIn', signIn)
     .post('/changePass', changePass)
-    .post('/update-user', updateUser)
+    .put('/update-user', updateUser)
     .delete('/delete-user/:id', deleteUser)
     // Category
+
     .get('/get-category', getCategory)
     .post('/add-category', addCategory)
     .delete('/delete-category/:id', deleteCategory)
