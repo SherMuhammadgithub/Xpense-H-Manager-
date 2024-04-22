@@ -12,12 +12,12 @@ const router = require('express').Router();
 router.post('/add-income', addIncome)
     .get('/get-income/:userId', getIncome)
     .delete('/delete-income/:id', deleteIncome)
-    .post('/update-income', updateIncome)
+    .put('/update-income', updateIncome)
     // Expense
     .post('/add-expense', addExpense)
     .get('/get-expense/:userId', getExpense)
     .delete('/delete-expense/:id', deleteExpense)
-    .post('/update-expense', updateExpense)
+    .put('/update-expense', updateExpense)
     // User
     .post('/signUp', signUp)
     .post('/signIn', signIn)
@@ -33,11 +33,11 @@ router.post('/add-income', addIncome)
     .get('/get-goal/:user_id', getGoal)
     .post('/add-goal', addGoal)
     .delete('/delete-goal/:id', deleteGoal)
-    .post('/update-goal', updateGoal)
+    .put('/update-goal', updateGoal)
     // Notification
     .get('/get-notification/:userId', getNotification)
     .post('/add-notification', addNotification)
     .delete('/delete-notification/:id', deleteNotification)
-    .post('/seen-notification/:id', seenNotification);
+    .put('/seen-notification/:id', seenNotification);
 
 module.exports = router;
