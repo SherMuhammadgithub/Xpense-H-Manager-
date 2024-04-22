@@ -46,14 +46,13 @@ exports.deleteNotification = async (req, res) => {
 exports.seenNotification = async (req, res) => {
   const { id } = req.params;
   try {
-    const [affectedRows] = await Notification.update(
-      { seen: true },
-      { where: { id } }
-    );
-    if (affectedRows === 0) {
-      return res.status(400).json({ message: "Notification not found" });
-    } else {
+    const notification = await Notification.findOne({ where: { id } });
+    if (notification) {
+      notification.Seen = true;
+      await notification.save();
       res.status(200).json({ message: "Notification seen successfully" });
+    } else {
+      res.status(400).json({ message: "Notification not found" });
     }
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
