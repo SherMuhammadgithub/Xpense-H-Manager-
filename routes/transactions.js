@@ -30,7 +30,7 @@ router.post('/add-income', addIncome)
     .post('/add-category', addCategory)
     .delete('/delete-category/:id', deleteCategory)
     // Goal
-    .get('/get-goal/:id', getGoal)
+    .get('/get-goal/:user_id', getGoal)
     .post('/add-goal', addGoal)
     .delete('/delete-goal/:id', deleteGoal)
     .post('/update-goal', updateGoal)

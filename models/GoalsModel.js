@@ -7,6 +7,14 @@ const Goals = sequelize.define('Goals', {
         primaryKey: true,
         autoIncrement: true
     },
+    user_id:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: "Users",
+            key: 'id'
+        }
+    },
     category_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
