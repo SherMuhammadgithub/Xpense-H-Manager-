@@ -35,6 +35,7 @@ const {
   deleteNotification,
   seenNotification,
 } = require("../controllers/notification");
+const { addFeedback } = require("../controllers/Feedback");
 
 const router = require("express").Router();
 
@@ -69,6 +70,8 @@ router
   .get("/get-notification/:userId", getNotification)
   .post("/add-notification", addNotification)
   .delete("/delete-notification/:id", deleteNotification)
-  .put("/seen-notification/:id", seenNotification);
+  .put("/seen-notification/:id", seenNotification)
+  // Feedback
+  .post("/add-feedback", addFeedback);
 
 module.exports = router;
