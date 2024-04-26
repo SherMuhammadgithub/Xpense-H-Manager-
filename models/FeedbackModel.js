@@ -33,3 +33,5 @@ const Feedback = sequelize.define("Feedback", {
     allowNull: true,
   },
 });
+
+module.exports = { Feedback };
