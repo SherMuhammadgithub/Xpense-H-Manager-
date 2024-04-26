@@ -1,27 +1,30 @@
-const {DataTypes} = require('sequelize');
-const {sequelize} = require('../db/db.js');
+const { DataTypes } = require("sequelize");
+const { sequelize } = require("../db/db.js");
 
-const Notification = sequelize.define('Notification', {
-    id:{
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+const Notification = sequelize.define("Notification", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  user_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: "Users",
+      key: "id",
     },
-    user_id:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: "Users",
-            key: 'id'
-        }
-    },
-    message:{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    Seen:{
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    }});
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  },
+  message: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  Seen: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
+});
 // Notification.sync();
 module.exports = Notification;
