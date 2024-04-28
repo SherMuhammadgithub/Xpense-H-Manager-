@@ -9,6 +9,7 @@ exports.addFeedback = async (req, res) => {
     const feedback = await Feedback.create({
       user_id,
       mood,
+      
       rating,
       checkbox,
       message,
