@@ -13,7 +13,6 @@ exports.addFeedback = async (req, res) => {
       checkbox,
       message,
     });
-    
     res.status(200).json({ message: "Feedback added successfully" });
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
