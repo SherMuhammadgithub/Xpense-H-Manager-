@@ -47,3 +47,8 @@ const Income = sequelize.define("Income", {
 // Income.sync();
 module.exports = Income;
 
+
+
+
+
+
