@@ -2,6 +2,7 @@ const { DataTypes } = require("sequelize");
 const { sequelize } = require("../db/db.js");
 
 
+
 const Feedback = sequelize.define("Feedback", {
   id: {
     type: DataTypes.INTEGER,
