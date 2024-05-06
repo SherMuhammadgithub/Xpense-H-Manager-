@@ -5,6 +5,7 @@ const { sequelize } = require("../db/db.js");
 const Feedback = sequelize.define("Feedback", {
   id: {
     type: DataTypes.INTEGER,
+    
     primaryKey: true,
     autoIncrement: true,
   },
