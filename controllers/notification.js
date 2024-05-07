@@ -42,7 +42,7 @@ exports.deleteNotification = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
+// use in future
 exports.seenNotification = async (req, res) => {
   const { id } = req.params;
   try {

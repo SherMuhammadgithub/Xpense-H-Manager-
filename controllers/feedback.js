@@ -19,3 +19,14 @@ exports.addFeedback = async (req, res) => {
     console.log(error);
   }
 };
+// GET FEED BACK WITH ID
+
+exports.getFeedback = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const feedback = await Feedback.findAll({ where: { user_id: userId } });
+    res.status(200).json(feedback);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
