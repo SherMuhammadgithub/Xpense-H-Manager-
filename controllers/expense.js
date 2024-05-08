@@ -1,16 +1,13 @@
 const Expense = require("../models/expenseModel");
 
+const Expense = require('./models/Expense');
+
 exports.addExpense = async (req, res) => {
   const { title, amount, category_id, description, date, user_id } = req.body;
 
   try {
     if (
-      !title ||
-      !amount ||
-      !category_id ||
-      !description ||
-      !date ||
-      !user_id
+      !title ||!amount ||!category_id ||!description ||!date ||!user_id
     ) {
       return res.status(400).json({ message: "All fields are required" });
     }
@@ -36,7 +33,6 @@ exports.getExpense = async (req, res) => {
   try {
     const userId = req.params.userId;
     const { category_id, sortBy } = req.query;
-
     let query = { user_id: userId };
     if (category_id) {
       query.category_id = category_id;
@@ -48,8 +44,7 @@ exports.getExpense = async (req, res) => {
     } else if (sortBy === "amount_desc") {
       sortOptions = [["amount", "DESC"]];
     }
-
-    const expense = await Expense.findAll({ where: query, order: sortOptions });
+     const expense = await Expense.findAll({ where: query, order: sortOptions });
     res.status(200).json(expense);
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
@@ -61,12 +56,7 @@ exports.updateExpense = async (req, res) => {
     req.body;
   try {
     if (
-      !title ||
-      !amount ||
-      !category_id ||
-      !description ||
-      !date ||
-      !user_id
+      !title ||!amount ||!category_id ||!description ||!date ||!user_id
     ) {
       return res.status(400).json({ message: "All fields are required" });
     }
