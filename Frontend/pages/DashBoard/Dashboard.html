@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-gray-800">
+    <header class="text-white body-font bg-gray-800 hover:text-gray-800">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a href="#" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <span class="ml-3 text-xl text-white">XPENSE</span>
+            </a>
+            <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+                <a href="#" class="mr-5 hover:text-gray-900">HELLO EMILLY!</a>
+            </nav>
+            <div class="relative text-gray-600">
+                <input type="search" name="search" placeholder="Search..."
+                    class="bg-gray-200 h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-full md:w-96">
+                <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                    <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-gray-700 text-white py-2">
+        <div class="container mx-auto text-center">
+            <!-- Navigation links can be added here -->
+        </div>
+    </nav>
+
+    <main class="container mx-auto py-4">
+        <section class="text-gray-100 body-font ">
+            <div class="container flex flex-col-reverse lg:flex-row items-center">
+                <div class="lg:w-1/2 lg:pl-12 md:pl-6 w-full mb-8 lg:mb-0">
+                    
+                    <div class="bg-gray-800 border border-white hover:bg-white hover:text-gray-800 p-8 rounded-md shadow-md">
+                        
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-semibold mb-4">Income vs Expense</h2>
+                            <canvas id="incomeExpenseChart" width="700" height="300"></canvas>
+                        </div>
+                        <!-- Other Dashboard Components (e.g., summary, recent transactions, etc.) -->
+                        <!-- Add your additional dashboard components here -->
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      
+                      var ctx = document.getElementById('incomeExpenseChart').getContext('2d');
+                      var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                          labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                          datasets: [{
+                            label: 'Income',
+                            data: [2000, 2500, 1800, 3000, 2200, 2800],
+                            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                          }, {
+                            label: 'Expenses',
+                            data: [1500, 2000, 1200, 2500, 1800, 2100],
+                            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                          }]
+                        },
+                        options: {
+                          scales: {
+                            x: { stacked: true },
+                            y: { stacked: true }
+                          }
+                        }
+                      });
+                    });
+                  </script>
+                <div class="lg:w-1/2 lg:px-4 md:px-2 px-0 hover:text-gray-800">
+                    <div class="max-w-md mx-auto bg-gray-800 border border-white hover:bg-white p-6 rounded-lg shadow-lg">
+                        <h1 class="text-xl font-bold mb-4">INCOME EXPENSE AND SAVING</h1>
+                       
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 mr-2">10%</div>
+                            <div class="flex-grow bg-gray-300 h-4 rounded-lg overflow-hidden">
+                                <div class="h-full bg-blue-500 bar" style="width: 10%;"></div>
+                            </div>
+                        </div>
+                       
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 mr-2">30%</div>
+                            <div class="flex-grow bg-gray-300 h-4 rounded-lg overflow-hidden">
+                                <div class="h-full bg-green-500 bar" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                       
+                        <div class="flex items-center mb-4">
+                            <div class="w-16 mr-2">50%</div>
+                            <div class="flex-grow bg-gray-300 h-4 rounded-lg overflow-hidden">
+                                <div class="h-full bg-yellow-500 bar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                       
+                        <div class="flex justify-between text-xs text-gray-500">
+                            <span>Low</span>
+                            <span>Medium</span>
+                            <span>High</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-gray-100  body-font mx-56">
+            <div class="container mx-auto flex flex-col md:flex-row items-center">
+                <div class="container px-2 py-2 flex flex-col hover:text-gray-100 mx-0 md:mx-12 md:w-64 justify-center">
+                    
+                    <div class="flex-col bg-gray-800 hover:bg-white hover:text-gray-100  h-28 sm:w-auto justify-start sm:justify-start border-b-2 inline-flex leading-none tracking-wider rounded-t border border-white">
+                        <a class="sm:px-6 py-3 p-4 tracking-wider  mx-12 mt-0 title-font font-medium m-2">Current Balance</a>
+                        <div class="flex flex-row mx-6 justify-center mt-1">
+                            <a class="mt-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-dollar-sign">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path
+                                        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </a>
+                            <h2 class="text-2xl justify-center">0</h2>
+                            <a class="w-12 justify-center ml-20 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon text-green-500 stroke-current"
+                                    viewBox="0 0 512 512">
+                                    <rect x="48" y="144" width="416" height="288" rx="48" ry="48" fill="none"
+                                        stroke-linejoin="round" stroke-width="32" />
+                                    <path
+                                        d="M411.36 144v-30A50 50 0 00352 64.9L88.64 109.85A50 50 0 0048 159v49"
+                                        fill="none" stroke-linejoin="round" stroke-width="32" />
+                                    <path
+                                        d="M368 320a32 32 0 1132-32 32 32 0 01-32 32z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <div class="flex-col bg-gray-800 mt-5 mb-5 hover:bg-white hover:text-gray-100 h-28 sm:w-auto justify-start sm:justify-start border-b-2  inline-flex leading-none tracking-wider rounded-t border border-white">
+                        <a class="sm:px-6 py-3 mx-8 w-56 h-28  sm:w-auto justify-center  sm:justify-start  title-font font-medium   leading-none  hover:text-gray-900 tracking-wider">
+                            Total Income
+                        </a>
+                        <div class="flex flex-row mx-6">
+                            <a class="mt-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-dollar-sign">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path
+                                        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </a>
+                            <h2 class="text-2xl justify-center">0</h2>
+                            <a class="w-12 justify-center ml-20">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon text-blue-400 stroke-current"
+                                    viewBox="0 0 512 512">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="M352 368h112V256" /><path
+                                        d="M48 144l121.37 121.37a32 32 0 0045.26 0l50.74-50.74a32 32 0 0145.26 0L448 352"
+                                        fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <div class="w-56 h-28 sm:w-auto hover:text-gray-100 justify-start bg-slate-100 border-white hover:bg-white sm:justify-start border-white border rounded-t-md">
+                        <a class="sm:px-6 py-3 mx-12  title-font font-medium inline-flex  leading-none  hover:text-gray-900 tracking-wider ">
+                            Total Expense
+                        </a>
+                        <div class="flex flex-row mx-6 justify-center mt-5">
+                            <a class="mt-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-dollar-sign">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path
+                                        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </a>
+                            <h2 class="text-2xl justify-center mt-1">0</h2>
+                            <a class="w-12 justify-center ml-20 mt-0">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="ionicon text-slate-500 stroke-current" viewBox="0 0 512 512">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32"
+                                        d="M352 144h112v112" /><path
+                                        d="M48 368l121.37-121.37a32 32 0 0145.26 0l50.74 50.74a32 32 0 0045.26 0L448 160"
+                                        fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="32" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                    <img class="object-cover object-center rounded" alt="hero"
+                        src="https://cdn3d.iconscout.com/3d/premium/thumb/budget-management-9925953-8060295.png?f=webp">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 XPENSE</p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+
