@@ -13,7 +13,7 @@ Xpense Tracker is a web application designed to help you track your expenses eff
 ## Screenshots
 
 ### Landing Page
-![Landing Page](images/landing_page.png)
+![Landing Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20201756.png?raw=true)
 *Screenshot of the landing page*
 
 ### Dashboard
