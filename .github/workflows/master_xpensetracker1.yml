@@ -22,15 +22,18 @@ jobs:
           node-version: "20.x"
 
       - name: Install npm packages Backend
-        run: cd Backend
+        run: |
+          cd Backend
           npm install
 
       - name: Install npm packages Frontend
-        run: cd Frontend
+        run: |
+          cd Frontend
           npm install
 
       - name: Build Frontend
-        run: cd Frontend
+        run: |
+          cd Frontend
           npm run build
 
       - name: Copy Frontend build to Backend
