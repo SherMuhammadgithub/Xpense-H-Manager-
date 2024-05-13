@@ -21,19 +21,19 @@ Xpense Tracker is a web application designed to help you track your expenses eff
 *Screenshot of the dashboard*
 
 ### Goals Page
-![Goals Page]([images/goals_page.png](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202148.png?raw=true)
+![Goals Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202148.png?raw=true)
 *Screenshot of the goals page*
 
 ### Expense Page
-![Expense Page]([images/expense_page.png](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202209.png?raw=true)
+![Expense Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202209.png?raw=true)
 *Screenshot of the expense page*
 
 ### Income Page
-![Income Page]([images/income_page.png](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202232.png?raw=true)
+![Income Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202232.png?raw=true)
 *Screenshot of the income page*
 
 ### Notifications Page
-![Notifications Page]([images/notifications_page.png](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202443.png?raw=true)
+![Notifications Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202443.png?raw=true)
 *Screenshot of the notifications page*
 
 ## Getting Started
