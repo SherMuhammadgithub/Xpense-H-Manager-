@@ -63,4 +63,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or feedback, please contact [Sher Muhammad](mailto:muhammadiqbalshermuhammad@gmail.com).
+For any inquiries or feedback, please contact [Xpense-Team](mailto:muhammadiqbalshermuhammad@gmail.com).
