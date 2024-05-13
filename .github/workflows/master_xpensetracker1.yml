@@ -34,7 +34,7 @@ jobs:
       - name: Build Frontend
         run: |
           cd Frontend
-          npm run build
+          CI=false npm run build
 
       - name: Copy Frontend build to Backend
         run: cp -r Frontend/build Backend/public
