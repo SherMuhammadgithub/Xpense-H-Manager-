@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 
-import img1 from "../assets/Images/tap-here.png";
-
 const Section = styled.section`
   min-height: 100vh;
   width: 100%;
@@ -18,42 +16,6 @@ const Section = styled.section`
 
   position: relative;
   /* background-color: ${(props) => props.theme.text}; */
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30vw;
-  height: 70vh;
-  box-shadow: 0 0 0 5vw ${(props) => props.theme.text};
-  border: 3px solid black;
-  overflow: hidden;
-  z-index: 11;
-
-  @media (max-width: 70em) {
-    width: 40vw;
-    top: 38%;
-    height: 80vh;
-  }
-
-  @media (max-width: 64em) {
-    width: 50vw;
-    box-shadow: 0 0 0 60vw ${(props) => props.theme.text};
-
-    height: 80vh;
-  }
-  @media (max-width: 48em) {
-    width: 60vw;
-
-    height: 80vh;
-  }
-  @media (max-width: 30em) {
-    width: 80vw;
-
-    height: 60vh;
-  }
 `;
 
 const Title = styled(motion.h1)`
@@ -75,20 +37,6 @@ const Title = styled(motion.h1)`
   }
   @media (max-width: 48em) {
     font-size: ${(props) => props.theme.fontxl};
-  }
-`;
-const Text = styled.div`
-  width: 20%;
-  font-size: ${(props) => props.theme.fontlg};
-  font-weight: 300;
-  position: absolute;
-  padding: 2rem;
-  top: 0;
-  right: 0;
-  z-index: 11;
-
-  @media (max-width: 48em) {
-    display: none;
   }
 `;
 
