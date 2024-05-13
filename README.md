@@ -17,23 +17,23 @@ Xpense Tracker is a web application designed to help you track your expenses eff
 *Screenshot of the landing page*
 
 ### Dashboard
-![Dashboard](images/dashboard.png)
+![Dashboard](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202122.png?raw=true)
 *Screenshot of the dashboard*
 
 ### Goals Page
-![Goals Page](images/goals_page.png)
+![Goals Page]([images/goals_page.png](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202148.png?raw=true))
 *Screenshot of the goals page*
 
 ### Expense Page
-![Expense Page](images/expense_page.png)
+![Expense Page]([images/expense_page.png](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202209.png?raw=true))
 *Screenshot of the expense page*
 
 ### Income Page
-![Income Page](images/income_page.png)
+![Income Page]([images/income_page.png](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202232.png?raw=true))
 *Screenshot of the income page*
 
 ### Notifications Page
-![Notifications Page](images/notifications_page.png)
+![Notifications Page]([images/notifications_page.png](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202443.png?raw=true))
 *Screenshot of the notifications page*
 
 ## Getting Started
@@ -42,9 +42,9 @@ Xpense Tracker is a web application designed to help you track your expenses eff
 
 ## Technologies Used
 
-- Frontend: HTML, CSS, JavaScript, React.js
+- Frontend: HTML, CSS, Tailwindcss, JavaScript, React.js
 - Backend: Node.js, Express.js
-- Database: MongoDB (or any other database of your choice)
+- Database: Sqlite 
 
 ## Contributing
 
@@ -63,4 +63,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any inquiries or feedback, please contact [your-name](mailto:your-email@example.com).
+For any inquiries or feedback, please contact [Sher Muhammad](mailto:muhammadiqbalshermuhammad@gmail.com).
