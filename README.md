@@ -10,11 +10,57 @@ Xpense Tracker is a web application designed to help you track your expenses eff
 - **Data Visualization**: Visualize your spending patterns with interactive charts and graphs to identify trends and areas for improvement.
 - **Multi-User Support**: Collaborate with family members or team members by sharing access to the expense tracker securely.
 
+## Screenshots
+
+### Landing Page
+![Landing Page](images/landing_page.png)
+*Screenshot of the landing page*
+
+### Dashboard
+![Dashboard](images/dashboard.png)
+*Screenshot of the dashboard*
+
+### Goals Page
+![Goals Page](images/goals_page.png)
+*Screenshot of the goals page*
+
+### Expense Page
+![Expense Page](images/expense_page.png)
+*Screenshot of the expense page*
+
+### Income Page
+![Income Page](images/income_page.png)
+*Screenshot of the income page*
+
+### Notifications Page
+![Notifications Page](images/notifications_page.png)
+*Screenshot of the notifications page*
+
 ## Getting Started
 
-### Installation
+...
 
-1. Clone the repository:
+## Technologies Used
 
-   ```bash
-   git clone https://github.com/your-username/xpense-tracker.git
+- Frontend: HTML, CSS, JavaScript, React.js
+- Backend: Node.js, Express.js
+- Database: MongoDB (or any other database of your choice)
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature/new-feature`).
+6. Create a new Pull Request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+For any inquiries or feedback, please contact [your-name](mailto:your-email@example.com).
