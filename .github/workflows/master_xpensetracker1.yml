@@ -79,5 +79,5 @@ jobs:
         with:
           app-name: "XpenseTracker1"
           slot-name: "Production"
-          package: .Backend
+          package: ./Backend
           startup-command: "npm run start"
