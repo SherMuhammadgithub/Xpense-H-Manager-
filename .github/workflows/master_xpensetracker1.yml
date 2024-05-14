@@ -80,3 +80,4 @@ jobs:
           app-name: "XpenseTracker1"
           slot-name: "Production"
           package: .
+          startup-command: "npm run start"
