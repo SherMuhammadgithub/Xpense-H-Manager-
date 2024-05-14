@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 // middlewares
 
 app.use(express.json()); // to parse json data
-app.use(cors({ origin: `http://localhost:${PORT}` })); // to avoid cors error
+app.use(cors()); // to avoid cors error
 app.use(express.static("public")); // to use static files
 
 // routes
