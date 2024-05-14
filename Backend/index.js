@@ -11,7 +11,6 @@ const Goals = require("./models/GoalsModel");
 
 const app = express();
 
-require("dotenv").config(); // to use .env file
 const PORT = process.env.PORT || 3000;
 
 // middlewares
