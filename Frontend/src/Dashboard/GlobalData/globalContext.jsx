@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
-const PORT = process.env.PORT || 3000;
 
-const BASE_URL = `http://localhost:${PORT}/api/v1/`;
+const BASE_URL = `http://localhost:8080/api/v1/`;
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
