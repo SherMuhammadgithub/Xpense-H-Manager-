@@ -13,27 +13,27 @@ Xpense Tracker is a web application designed to help you track your expenses eff
 ## Screenshots
 
 ### Landing Page
-![Landing Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20201756.png?raw=true)
+![Landing Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/client/src/assets/Images/Screenshot%202024-05-13%20201756.png?raw=true)
 *Screenshot of the landing page*
 
 ### Dashboard
-![Dashboard](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202122.png?raw=true)
+![Dashboard](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/client/src/assets/Images/Screenshot%202024-05-13%20202122.png?raw=true)
 *Screenshot of the dashboard*
 
 ### Goals Page
-![Goals Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202148.png?raw=true)
+![Goals Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/client/src/assets/Images/Screenshot%202024-05-13%20202148.png?raw=true)
 *Screenshot of the goals page*
 
 ### Expense Page
-![Expense Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202209.png?raw=true)
+![Expense Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/client/src/assets/Images/Screenshot%202024-05-13%20202209.png?raw=true)
 *Screenshot of the expense page*
 
 ### Income Page
-![Income Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202232.png?raw=true)
+![Income Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/client/src/assets/Images/Screenshot%202024-05-13%20202232.png?raw=true)
 *Screenshot of the income page*
 
 ### Notifications Page
-![Notifications Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/src/assets/Images/Screenshot%202024-05-13%20202443.png?raw=true)
+![Notifications Page](https://github.com/SherMuhammadgithub/xpense-tracker-app/blob/master/Frontend/client/src/assets/Images/Screenshot%202024-05-13%20202443.png?raw=true)
 *Screenshot of the notifications page*
 
 ## Getting Started
