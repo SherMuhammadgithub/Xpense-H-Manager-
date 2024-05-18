@@ -1,7 +1,13 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
+<<<<<<< HEAD:Frontend/client/src/Dashboard/GlobalData/globalContext.jsx
 const name = "http://localhost:8000";
 const BASE_URL = name + "/api/v1/";
+=======
+
+
+const BASE_URL = process.env.WEBSITE_HOSTNAME + "/api/v1" || `http://localhost:8080/api/v1/`;
+>>>>>>> 0c127898e05b9a8937791e490f44cba6934f3c34:Frontend/src/Dashboard/GlobalData/globalContext.jsx
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
