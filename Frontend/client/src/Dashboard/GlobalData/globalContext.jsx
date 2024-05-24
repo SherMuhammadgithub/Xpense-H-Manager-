@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 const Hostname = process.env.REACT_APP_HOSTNAME;
-const port = process.env.PORT || 3000;
+const port = process.env.REACT_APP_PORT || 3000;
 
 const BASE_URL = `http://${Hostname}:${port}/api/v1/`;
 const GlobalContext = createContext();
