@@ -28,16 +28,16 @@ jobs:
 
       - name: Install npm packages Frontend
         run: |
-          cd Frontend
+          cd Frontend/client/
           npm install
 
       - name: Build Frontend
         run: |
-          cd Frontend
+          cd Frontend/client/
           CI=false npm run build
 
       - name: Copy Frontend build to Backend
-        run: cp -r Frontend/build Backend/public
+        run: cp -r Frontend/client/build Backend/public
 
       - name: Zip artifact for deployment
         run: zip -r release.zip Backend
