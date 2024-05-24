@@ -1,13 +1,10 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
-<<<<<<< HEAD:Frontend/client/src/Dashboard/GlobalData/globalContext.jsx
-const name = "http://localhost:8000";
-const BASE_URL = name + "/api/v1/";
-=======
 
+const Hostname = process.env.REACT_APP_HOSTNAME;
+const port = process.env.PORT || 3000;
 
-const BASE_URL = process.env.WEBSITE_HOSTNAME + "/api/v1" || `http://localhost:8080/api/v1/`;
->>>>>>> 0c127898e05b9a8937791e490f44cba6934f3c34:Frontend/src/Dashboard/GlobalData/globalContext.jsx
+const BASE_URL = `http://${Hostname}:${port}/api/v1/`;
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
@@ -160,6 +157,8 @@ export const GlobalProvider = ({ children }) => {
     return success;
   };
   const signIn = async (user) => {
+    console.log(Hostname);
+    console.log(BASE_URL);
     let success = false;
     const response = await axios
       .post(`${BASE_URL}signin`, user)
