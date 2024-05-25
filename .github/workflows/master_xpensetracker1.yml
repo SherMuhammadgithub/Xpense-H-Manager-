@@ -91,4 +91,4 @@ jobs:
           app-name: "XpenseTracker1"
           slot-name: "Production"
           package: ./Backend
-          startup-command: "npm run start"
+          startup-command: "export REACT_APP_PORT=$PORT && export REACT_APP_HOSTNAME=$HOSTNAME && npm run start"
