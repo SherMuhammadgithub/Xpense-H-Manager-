@@ -1,10 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
-
-const Hostname = process.env.REACT_APP_HOSTNAME;
-const port = process.env.REACT_APP_PORT || 3000;
-
-const BASE_URL = `http://${Hostname}:${port}/api/v1/`;
+const BASE_URL = `http://xpensetracker1.azurewebsites.net/api/v1/`;
 const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
@@ -157,8 +153,6 @@ export const GlobalProvider = ({ children }) => {
     return success;
   };
   const signIn = async (user) => {
-    console.log(Hostname);
-    console.log(BASE_URL);
     let success = false;
     const response = await axios
       .post(`${BASE_URL}signin`, user)

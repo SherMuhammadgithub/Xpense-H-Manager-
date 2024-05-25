@@ -66,7 +66,6 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
         
-
           
       - name: Login to Azure
         uses: azure/login@v1
@@ -75,20 +74,11 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8731FBFB170E4CD3BDF18FEACAFF8174 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C47639FA9DBA48DF87729F89FF939309 }}
 
-      - name: Get hostname and port
-        id: get-hostname-and-port
-        run: |
-          echo "::set-output name=REACT_APP_PORT::$PORT"
-          echo "::set-output name=REACT_APP_HOSTNAME::$HOSTNAME"
-
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
-        env:
-          REACT_APP_PORT: ${{ steps.get-hostname-and-port.outputs.REACT_APP_PORT}}
-          REACT_APP_HOSTNAME: ${{ steps.get-hostname-and-port.outputs.REACT_APP_HOSTNAME}}
         with:
           app-name: "XpenseTracker1"
           slot-name: "Production"
           package: ./Backend
-          startup-command: "export REACT_APP_PORT=$PORT && export REACT_APP_HOSTNAME=$HOSTNAME && npm run start"
+          startup-command: "npm run start"
