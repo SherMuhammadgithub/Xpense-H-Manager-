@@ -4,6 +4,9 @@
 name: Build and deploy Node.js app to Azure Web App - XpenseTracker1
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
@@ -49,8 +52,7 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-        
-          
+
       - name: Login to Azure
         uses: azure/login@v1
         with:
