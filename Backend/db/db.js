@@ -1,5 +1,4 @@
 const { Sequelize } = require('sequelize');
-require('dotenv').config();
 
 connectionString = process.env.CONNECTION_STRING;
 const sequelize = new Sequelize(connectionString, {});
