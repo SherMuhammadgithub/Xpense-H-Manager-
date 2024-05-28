@@ -1,18 +1,13 @@
 const { Sequelize } = require('sequelize');
+require('dotenv').config();
 
-const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: './db/db.sqlite'
-});
+connectionString = process.env.CONNECTION_STRING;
+const sequelize = new Sequelize(connectionString, {});
 
 const db = async() => {
     try {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
-
-        // Enable foreign key support
-        await sequelize.query("PRAGMA foreign_keys = ON;");
-        console.log('Foreign key support enabled');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
