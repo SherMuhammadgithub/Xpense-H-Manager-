@@ -13,6 +13,10 @@ exports.signUp = async (req, res) => {
         .status(400)
         .json({ message: "Password must be at least 6 characters long" });
     }
+    var user = await User.findOne({ where: { email: email } });
+    if (user) {
+      return res.status(400).json({ message: "User already exists" });
+    }
 
     const user = await User.create({
       name,
@@ -46,12 +50,10 @@ exports.signIn = async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-    res
-      .status(200)
-      .json({
-        message: `User logged in successfully`,
-        user: { id: user.id, name: user.name, email: user.email },
-      });
+    res.status(200).json({
+      message: `User logged in successfully`,
+      user: { id: user.id, name: user.name, email: user.email },
+    });
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
@@ -100,12 +102,10 @@ exports.updateUser = async (req, res) => {
     if (affectedRows === 0) {
       return res.status(400).json({ message: "User not found" });
     } else {
-      res
-        .status(200)
-        .json({
-          message: "User updated successfully",
-          user: { id: id, name: name, email: email },
-        });
+      res.status(200).json({
+        message: "User updated successfully",
+        user: { id: id, name: name, email: email },
+      });
     }
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
@@ -136,4 +136,3 @@ exports.getUser = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
