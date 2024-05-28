@@ -13,8 +13,8 @@ exports.signUp = async (req, res) => {
         .status(400)
         .json({ message: "Password must be at least 6 characters long" });
     }
-    var user = await User.findOne({ where: { email: email } });
-    if (user) {
+    const check = await User.findOne({ where: { email: email } });
+    if (check) {
       return res.status(400).json({ message: "User already exists" });
     }
 
