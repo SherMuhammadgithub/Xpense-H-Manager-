@@ -17,7 +17,6 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json()); // to parse json data
 app.use(cors()); // to avoid cors error
-app.use(express.static("public")); // to use static files
 
 // routes
 readdirSync("./routes").map((route) =>
